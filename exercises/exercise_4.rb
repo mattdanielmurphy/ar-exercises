@@ -28,4 +28,12 @@ Store.create(
 )
 
 @mens_stores = Store.where(mens_apparel: true)
-puts @mens_stores
+@mens_stores.each do |store|
+	puts store.name
+end
+
+@womens_stores_with_annual_revenue_under_1_million = Store.where("womens_apparel = ? AND annual_revenue < ?", true, 10**6)
+
+@womens_stores_with_annual_revenue_under_1_million.each do |store|
+	puts store.name
+end
